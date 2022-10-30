@@ -12,6 +12,7 @@
             if(!in_array($_POST['product_id'],$products_array_ids)){
 
                     $product_id = $_POST['product_id'];
+
                     $product_array = array(
                                     'product_id'=>$_POST['product_id'],
                                     'product_name'=>$_POST['product_name'],
@@ -27,9 +28,6 @@
                     echo '<script>alert("Product was already to cart");</script>';
                 }
 
-                
-               
-        
                 //if this is the first product
         }else{
             $product_id = $_POST['product_id'];
@@ -58,7 +56,7 @@
 }else if(isset($_POST['remove_product'])){
 
     $product_id = $_POST['product_id'];
-    unset($_SESSION['cart'][$_product_id]);
+    unset($_SESSION['cart'][$product_id]);
 
 }else{
         header('location:index.php');
