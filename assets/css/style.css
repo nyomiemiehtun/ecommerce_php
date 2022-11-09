@@ -172,7 +172,10 @@ button:hover{
     transform: translateY(50px);
     opacity:0;
     transition:0.3s all;
+    color: #fff;
 }
+
+ 
 .product:hover .buy-btn{
     transform: translateY(0px);
     opacity :1;
@@ -282,6 +285,7 @@ footer .copyright img{
     color:#fff;
     background-color: coral;
 }
+
   /*Single-producr*/
 .small-img-group{
     display:flex;
@@ -330,5 +334,5 @@ footer .copyright img{
   }
 
   
- 
+  
    
