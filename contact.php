@@ -1,5 +1,5 @@
 
-        <?php include('layouts/header.php'); ?>
+    <?php include('layouts/header.php'); ?>
     <style>
         #contact span{
         color:#fb774b;

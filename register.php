@@ -1,6 +1,9 @@
+<?php include('layouts/header.php'); ?>
+
+
 <?php
 
-  session_start();
+  
 
   include ('server/connection.php');
 
@@ -77,7 +80,7 @@ if(isset($_POST['register'])){
 ?>
 
 
-<?php include('layouts/header.php'); ?>
+
 
     <style>
         #register-form{

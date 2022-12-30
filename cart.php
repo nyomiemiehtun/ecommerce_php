@@ -1,6 +1,9 @@
+
+<?php include('layouts/header.php'); ?>
+
 <?php 
 
-    session_start();
+    
     if(isset($_POST['add_to_cart'])){
 
         //if user has already added a product to cart
@@ -113,7 +116,7 @@
 
 
 
-<?php include('layouts/header.php'); ?>
+
 <style>
 
 .cart table{
@@ -219,6 +222,7 @@
                 <th>Subtotal</th>
              </tr>
 
+            <?php if(isset($_SESSION['cart'])) { ?>
 
              <?php foreach($_SESSION['cart'] as $key => $value) {?>
             <tr>
@@ -249,9 +253,12 @@
                     <span>$</span>
                     <span class="product-price"><?php echo $value['product_quantity'] * $value['product_price']; ?></span>
                 </td>
-            </tr>
+             </tr>
+
             <?php } ?>
-            
+
+            <?php } ?>
+
         </table>
 
         <div class="cart-total">
@@ -262,7 +269,9 @@
             </tr>-->
             <tr>
                 <td>Total</td>
+                <?php if(isset($_SESSION['cart'])) { ?>
                 <td>$<?php echo $_SESSION['total']; ?></td>
+                <?php } ?>
             </tr>
         </table>
         </div>

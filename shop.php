@@ -1,3 +1,5 @@
+<?php include('layouts/header.php'); ?>
+
 <?php
 
 include('server/connection.php');
@@ -19,9 +21,10 @@ include('server/connection.php');
 
          $category = $_POST['category'];
          $price = $_POST['price'];
-
+          echo "category : $category,price :$price";
+          
          //2.return number of products
-         $stmt1 = $conn->prepare("SELECT COUNT(*) As total_records FROM products WHERE product_category =? AND product_price <=?");
+         $stmt1 = $conn->prepare("SELECT COUNT(*) As total_records FROM products");
          $stmt1->bind_param('si',$category, $price);
          $stmt1->execute();
          $stmt1->bind_result($total_records);
@@ -30,7 +33,7 @@ include('server/connection.php');
 
 
          //3.products per page
-         $total_records_per_page = 1;
+         $total_records_per_page = 8;
          $offset = ($page_no -1) * $total_records_per_page;
          $privious_page = $page_no - 1;
          $next_page = $page_no + 1;
@@ -85,7 +88,7 @@ include('server/connection.php');
 
 ?>
 
-<?php include('layouts/header.php'); ?>
+
   <style>
   #shop{
     width:70%;

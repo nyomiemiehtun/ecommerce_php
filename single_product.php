@@ -1,3 +1,6 @@
+<?php include('layouts/header.php'); ?>
+
+
 <?php
       include('server/connection.php');
 
@@ -19,7 +22,7 @@
 
 ?>
 
-<?php include('layouts/header.php'); ?>
+
 
 
     

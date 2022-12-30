@@ -1,12 +1,13 @@
-<?php include('layouts/header.php'); ?>
 
-<?php 
-  
+<?php include('header.php'); ?>
 
-  include('server/connection.php');
+<?php
 
-    if(isset($_SESSION['logged_in'])){
-      header('location: account.php');
+
+  include('../server/connection.php');
+
+    if(isset($_SESSION['admin_logged_in'])){
+      header('location: index.php');
       exit;
     }
 
@@ -15,23 +16,23 @@
     $email = $_POST['email'];
     $password = md5($_POST['password']);
     
-    $stmt = $conn->prepare("SELECT user_id, user_name, user_email,user_password FROM users
-     WHERE user_email=? AND user_password = ? LIMIT 1 ");
+    $stmt = $conn->prepare("SELECT admin_id, admin_name, admin_email, admin_password FROM admins
+     WHERE admin_email=? AND admin_password = ? LIMIT 1 ");
      $stmt->bind_param('ss',$email, $password);
 
      if($stmt->execute()){
       
-        $stmt->bind_result($user_id, $user_name, $user_email, $user_password);
+        $stmt->bind_result($admin_id, $admin_name, $admin_email, $admin_password);
         $stmt->store_result();
 
         if($stmt->num_rows()== 1){
           $stmt->fetch();
-          $_SESSION['user_id']=$user_id;
-          $_SESSION['user_name']=$user_name;
-          $_SESSION['user_email']=$user_email;
-          $_SESSION['logged_in']=true;
+          $_SESSION['admin_id']=$admin_id;
+          $_SESSION['admin_name']=$admin_name;
+          $_SESSION['admin_email']=$admin_email;
+          $_SESSION['admin_logged_in']=true;
 
-          header('location: account.php?login_success=logged in successfully');
+          header('location: index.php?login_success=logged in successfully');
 
         }else{
 
@@ -48,6 +49,11 @@
 
 
 ?>
+
+
+
+
+
 
 
 
@@ -75,12 +81,7 @@
 
 
 
-    </style>
-
-
-
-
-
+    </style> 
 <!--Login-->
 <section class="my-5 py-5">
     <div class="container text-center mt-3 pt-5">
@@ -108,12 +109,7 @@
     </div>
 </section>
 
-
-
-
-
-<?php include('layouts/footer.php'); ?>
-
-
-
-    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

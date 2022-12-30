@@ -1,3 +1,6 @@
+
+<?php include('layouts/header.php'); ?>
+
 <?php
 
   /*
@@ -49,7 +52,6 @@
 
 ?>
 
-<?php include('layouts/header.php'); ?>
 
     <style>
          #account-form{
