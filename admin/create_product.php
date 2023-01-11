@@ -4,7 +4,7 @@ include('../server/connection.php');
 
 if(isset($_POST['create_product'])){
 
-    $product_name = $_POST['name'];
+    $product_name = $_POST['title'];
     $product_description = $_POST['description'];
     $product_price = $_POST['price'];
     $product_special_offer = $_POST['offer'];
@@ -34,7 +34,7 @@ if(isset($_POST['create_product'])){
 
 
    //create a new user
-   $stmt = $conn->prepare("INSERT INTO products (product_name, product_description,product_price, product_special_offer,
+   $stmt=$conn->prepare("INSERT INTO products (product_name, product_description,product_price, product_special_offer,
                                                 product_image, product_image2,product_image3,product_image4,product_category,
                                                 product_color)
                                                 VALUES (?,?,?,?,?,?,?,?,?,?)");

@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-group mt-2">
                         <label>Price</label>
-                        <input type="text" class="form-control" id="procuct_price" name="price" placeholder="Product" required/>
+                        <input type="text" class="form-control" id="procuct_price" name="price" placeholder="Price" required/>
                     </div>
                     <div class="form-group mt-2">
                         <label>Special Offer/Sale</label>
@@ -92,6 +92,7 @@
                             <option value="shoes">Shoes</option>
                             <option value="watches">Watches</option>
                             <option value="clothes">Clothes</option>
+                            <option value="coats">Coats</option>
                         </select>
                     </div>
                     <div class="form-group mt-2">

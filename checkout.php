@@ -9,7 +9,7 @@
 
       //send user to home page
     }else{
-      header('location: index.php');
+        //header('location: index.php');
     }
 
 
